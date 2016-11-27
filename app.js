@@ -33,12 +33,13 @@ var opts = require('optimist')
             description: 'defaults to "password", you can use "publickey,password" instead'
         },
         port: {
-            demand: true,
+            demand: false,
             alias: 'p',
             description: 'wetty listen port'
         },
     }).boolean('allow_discovery').argv;
 
+vat opts.port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 3000;
 var runhttps = false;
 var sshport = 22;
 var sshhost = 'localhost';
