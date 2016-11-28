@@ -39,7 +39,7 @@ var opts = require('optimist')
         },
     }).boolean('allow_discovery').argv;
 
-opts.port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 3000;
+opts.port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080;
 var runhttps = false;
 var sshport = 22;
 var sshhost = 'localhost';
