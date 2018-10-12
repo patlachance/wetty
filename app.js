@@ -103,14 +103,20 @@ io.on('connection', function(socket){
     }
 
     var term;
-    if (process.getuid() == 0) {
+    if (match = request.headers.referer.match('/wetty/ssh/.+$')) {
+            term = pty.spawn('ssh', [sshuser + sshhost, '-p', sshport, '-o', 'PreferredAuthentications=' + sshauth], {
+                name: 'xterm-256color',
+                cols: 80,
+                rows: 30
+            });
+    } else if (process.getuid() == 0) {
         term = pty.spawn('/bin/login', [], {
             name: 'xterm-256color',
             cols: 80,
             rows: 30
         });
     } else {
-        term = pty.spawn('ssh', [sshuser + sshhost, '-p', sshport, '-o', 'PreferredAuthentications=' + sshauth], {
+        term = pty.spawn('/bin/bash', [], {
             name: 'xterm-256color',
             cols: 80,
             rows: 30
