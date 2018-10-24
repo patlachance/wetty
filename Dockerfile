@@ -9,7 +9,7 @@ RUN apk update && \
     apk add --virtual .build-dependencies g++ && \
     npm install && \
     apk del .build-dependencies && \
-    rm -rf /var/cache/apk/* && \
+    rm -rf /var/cache/apk/*
 
 #RUN apt-get update
 #RUN apt-get install -y vim
