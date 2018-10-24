@@ -8,5 +8,4 @@ if ! whoami > /dev/null 2>&1; then
 fi
 
 # Execute default CMD
-cd $(dirname $0)
 exec $@

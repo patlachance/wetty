@@ -16,7 +16,7 @@ WORKDIR $WORKDIR
 EXPOSE 3000
 
 ENTRYPOINT ["/app/entrypoint.sh"]
-CMD ["node", "app.js", "-p", "3000"]
+CMD ["node", "/app/app.js", "-p", "3000"]
 
 # Allow group access to project files
 RUN chgrp -R 0 /app && \
