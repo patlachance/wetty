@@ -1,4 +1,4 @@
-FROM docker.io/oiprnd/oiptools
+FROM docker.io/oiprnd/oiptools:alpine-stable
 MAINTAINER Patrice Lachance
 
 ADD . /app
