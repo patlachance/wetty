@@ -1,6 +1,8 @@
 FROM docker.io/oiprnd/oiptools:alpine-stable
 MAINTAINER Patrice Lachance
 
+USER root
+
 ADD . /app
 WORKDIR /app
 RUN npm install
