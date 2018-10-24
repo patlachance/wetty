@@ -11,10 +11,7 @@ RUN apk update && \
     apk del .build-dependencies && \
     rm -rf /var/cache/apk/*
 
-#RUN apt-get update
-#RUN apt-get install -y vim
-#RUN useradd -d /home/term -m -s /bin/bash term
-#RUN echo 'term:term' | chpasswd
+WORKDIR $WORKDIR
 
 EXPOSE 3000
 
