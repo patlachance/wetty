@@ -5,7 +5,12 @@ USER root
 
 ADD . /app
 WORKDIR /app
-RUN npm install
+RUN apk update && \
+    apk add --virtual .build-dependencies g++ && \
+    npm install && \
+    apk del .build-dependencies && \
+    rm -rf /var/cache/apk/* && \
+
 #RUN apt-get update
 #RUN apt-get install -y vim
 #RUN useradd -d /home/term -m -s /bin/bash term
